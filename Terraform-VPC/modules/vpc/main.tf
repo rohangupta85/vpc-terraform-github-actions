@@ -44,7 +44,7 @@ resource "aws_route_table" "rt" {
   }
 }
 
-# Route Table Association
+# Route Table Association - same rt, but 2 rta's - meaning, associating the rt to the 2 subnets
 resource "aws_route_table_association" "rta" {
   count = length(var.subnet_cidr)
   subnet_id      = aws_subnet.subnets[count.index].id
